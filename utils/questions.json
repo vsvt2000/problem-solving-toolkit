@@ -1,0 +1,79 @@
+{
+  "sections": [
+    {
+      "id": "A",
+      "title": "SECTION A: PROBLEM IDENTIFICATION",
+      "purpose": "Classify the nature, severity, and origin of the problem",
+      "questions": [
+        { "id": "A1", "question": "How would you best describe the primary problem your organization is facing?", "options": [{ "label": "Strategic direction clarity", "weight": 1 }, { "label": "Process/Operational issue", "weight": 2 }, { "label": "Large-scale change/Transformation", "weight": 3 }, { "label": "Performance gap (unclear root cause)", "weight": 4 }] },
+        { "id": "A2", "question": "How long has this problem existed?", "options": [{ "label": "< 3 months", "weight": 1 }, { "label": "3-12 months", "weight": 2 }, { "label": "1-3 years", "weight": 3 }, { "label": "> 3 years", "weight": 4 }] },
+        { "id": "A3", "question": "What triggered the decision to address this problem now?", "options": [{ "label": "Specific event/Crisis", "weight": 1 }, { "label": "Accumulating pressure", "weight": 2 }, { "label": "Strategic opportunity", "weight": 3 }, { "label": "External benchmarking", "weight": 4 }] },
+        { "id": "A4", "question": "How well understood is the root cause of the problem?", "options": [{ "label": "Not understood", "weight": 1 }, { "label": "Partially understood", "weight": 2 }, { "label": "Mostly understood", "weight": 3 }, { "label": "Fully understood", "weight": 4 }] },
+        { "id": "A5", "question": "How many parts of the organization does this problem affect?", "options": [{ "label": "One team/function", "weight": 1 }, { "label": "Multiple teams (one unit)", "weight": 2 }, { "label": "Multiple business units", "weight": 3 }, { "label": "Entire organization", "weight": 4 }] },
+        { "id": "A6", "question": "What is the primary consequence if this problem is not solved within 12 months?", "isMulti": true, "options": [{ "label": "Financial loss", "weight": 1 }, { "label": "Competitive disadvantage", "weight": 2 }, { "label": "Regulatory risk", "weight": 3 }, { "label": "People/Culture damage", "weight": 4 }] },
+        { "id": "A7", "question": "Has this problem been formally attempted before?", "options": [{ "label": "No", "weight": 1 }, { "label": "Yes, once", "weight": 2 }, { "label": "Yes, multiple times", "weight": 3 }, { "label": "Partially", "weight": 4 }] },
+        { "id": "A8", "question": "What type of outcome are you primarily seeking?", "options": [{ "label": "Diagnosis", "weight": 1 }, { "label": "Solution design", "weight": 2 }, { "label": "Execution framework", "weight": 3 }, { "label": "Sustainability model", "weight": 4 }] }
+      ]
+    },
+    {
+      "id": "B",
+      "title": "SECTION B: ORGANIZATIONAL CONTEXT",
+      "purpose": "Understand the environment",
+      "questions": [
+        { "id": "B1", "question": "What best describes your organization's size?", "options": [{ "label": "Small (<100)", "weight": 1 }, { "label": "Mid-size (100-999)", "weight": 2 }, { "label": "Large (1k-10k)", "weight": 3 }, { "label": "Enterprise (10k+)", "weight": 4 }] },
+        { "id": "B2", "question": "What best describes your industry?", "options": [{ "label": "Financial Services", "weight": 1 }, { "label": "Healthcare/Life Sciences", "weight": 2 }, { "label": "Consumer/Retail", "weight": 3 }, { "label": "Industrial/Manufacturing", "weight": 4 }, { "label": "Tech/Professional Services", "weight": 5 }, { "label": "Public Sector/Non-profit", "weight": 6 }] },
+        { "id": "B3", "question": "What best describes your organization's current strategic priority?", "options": [{ "label": "Growth", "weight": 1 }, { "label": "Efficiency", "weight": 2 }, { "label": "Transformation", "weight": 3 }, { "label": "Resilience", "weight": 4 }] },
+        { "id": "B4", "question": "Quality of data available?", "options": [{ "label": "Poor", "weight": 1 }, { "label": "Basic", "weight": 2 }, { "label": "Moderate", "weight": 3 }, { "label": "Strong", "weight": 4 }] },
+        { "id": "B5", "question": "Senior leadership's attitude?", "options": [{ "label": "Unaware/Disengaged", "weight": 1 }, { "label": "Aware but passive", "weight": 2 }, { "label": "Supportive", "weight": 3 }, { "label": "Actively sponsoring", "weight": 4 }] },
+        { "id": "B6", "question": "Primary constraint?", "options": [{ "label": "Resources", "weight": 1 }, { "label": "Capability", "weight": 2 }, { "label": "Alignment", "weight": 3 }, { "label": "Culture", "weight": 4 }] },
+        { "id": "B7", "question": "Realistic timeline?", "options": [{ "label": "< 3 months", "weight": 1 }, { "label": "3-6 months", "weight": 2 }, { "label": "6-12 months", "weight": 3 }, { "label": "> 12 months", "weight": 4 }] },
+        { "id": "B8", "question": "Risk tolerance?", "options": [{ "label": "Very low", "weight": 1 }, { "label": "Low", "weight": 2 }, { "label": "Moderate", "weight": 3 }, { "label": "High", "weight": 4 }] }
+      ]
+    },
+    {
+      "id": "C",
+      "title": "SECTION C: AI MATURITY ASSESSMENT",
+      "purpose": "Determine appropriate AI integration level",
+      "questions": [
+        { "id": "C1", "question": "Current use of AI?", "options": [{ "label": "None", "weight": 1 }, { "label": "Exploratory", "weight": 2 }, { "label": "Pilot stage", "weight": 3 }, { "label": "Scaled", "weight": 4 }] },
+        { "id": "C2", "question": "State of AI infrastructure?", "options": [{ "label": "None", "weight": 1 }, { "label": "Basic", "weight": 2 }, { "label": "Intermediate", "weight": 3 }, { "label": "Advanced", "weight": 4 }] },
+        { "id": "C3", "question": "Workforce AI literacy?", "options": [{ "label": "Very low", "weight": 1 }, { "label": "Low", "weight": 2 }, { "label": "Moderate", "weight": 3 }, { "label": "High", "weight": 4 }] },
+        { "id": "C4", "question": "Formal AI governance/ethics policy?", "options": [{ "label": "No", "weight": 1 }, { "label": "In development", "weight": 2 }, { "label": "Informal", "weight": 3 }, { "label": "Formal", "weight": 4 }] },
+        { "id": "C5", "question": "Primary barrier to AI adoption?", "options": [{ "label": "Data", "weight": 1 }, { "label": "Skills", "weight": 2 }, { "label": "Culture", "weight": 3 }, { "label": "Governance", "weight": 4 }] },
+        { "id": "C6", "question": "Which AI capabilities are most relevant? (Select up to 2)", "isMulti": true, "options": [{ "label": "Process automation", "weight": 1 }, { "label": "Predictive analytics", "weight": 2 }, { "label": "NLP", "weight": 3 }, { "label": "Decision support", "weight": 4 }, { "label": "Computer vision", "weight": 5 }, { "label": "Generative AI", "weight": 6 }] },
+        { "id": "C7", "question": "Importance of explainable AI?", "options": [{ "label": "Critical", "weight": 1 }, { "label": "Important", "weight": 2 }, { "label": "Moderate", "weight": 3 }, { "label": "Low", "weight": 4 }] },
+        { "id": "C8", "question": "Primary goal for AI in this engagement?", "options": [{ "label": "Efficiency", "weight": 1 }, { "label": "Insight", "weight": 2 }, { "label": "Decision quality", "weight": 3 }, { "label": "Innovation", "weight": 4 }] }
+      ]
+    },
+    {
+      "id": "D",
+      "title": "SECTION D: STAKEHOLDER AND CHANGE READINESS",
+      "purpose": "Assess the human dimension",
+      "questions": [
+        { "id": "D1", "question": "Employee attitude toward initiative?", "options": [{ "label": "Resistant", "weight": 1 }, { "label": "Skeptical", "weight": 2 }, { "label": "Neutral", "weight": 3 }, { "label": "Supportive", "weight": 4 }] },
+        { "id": "D2", "question": "Clarity of vision and purpose?", "options": [{ "label": "Not communicated", "weight": 1 }, { "label": "Minimally communicated", "weight": 2 }, { "label": "Partially communicated", "weight": 3 }, { "label": "Fully communicated", "weight": 4 }] },
+        { "id": "D3", "question": "Identified change champions?", "options": [{ "label": "No", "weight": 1 }, { "label": "Informally", "weight": 2 }, { "label": "Partially", "weight": 3 }, { "label": "Fully", "weight": 4 }] },
+        { "id": "D4", "question": "Primary fear or concern?", "options": [{ "label": "Job security", "weight": 1 }, { "label": "Competence", "weight": 2 }, { "label": "Fairness", "weight": 3 }, { "label": "Trust", "weight": 4 }] },
+        { "id": "D5", "question": "Quality of cross-functional collaboration?", "options": [{ "label": "Poor", "weight": 1 }, { "label": "Below average", "weight": 2 }, { "label": "Average", "weight": 3 }, { "label": "Strong", "weight": 4 }] },
+        { "id": "D6", "question": "Historical handling of major change?", "options": [{ "label": "Poorly", "weight": 1 }, { "label": "Mixed", "weight": 2 }, { "label": "Adequately", "weight": 3 }, { "label": "Well", "weight": 4 }] },
+        { "id": "D7", "question": "Available change management resources?", "options": [{ "label": "None", "weight": 1 }, { "label": "Limited", "weight": 2 }, { "label": "Moderate", "weight": 3 }, { "label": "Sufficient", "weight": 4 }] },
+        { "id": "D8", "question": "Effective communication channels? (Select up to 2)", "isMulti": true, "options": [{ "label": "Town halls", "weight": 1 }, { "label": "Manager cascades", "weight": 2 }, { "label": "Digital channels", "weight": 3 }, { "label": "Peer networks", "weight": 4 }] }
+      ]
+    },
+    {
+      "id": "E",
+      "title": "SECTION E: CONTINUOUS IMPROVEMENT READINESS",
+      "purpose": "Assess capacity to sustain improvement",
+      "questions": [
+        { "id": "E1", "question": "Formal CI program or methodology?", "options": [{ "label": "No", "weight": 1 }, { "label": "Informal", "weight": 2 }, { "label": "Partial", "weight": 3 }, { "label": "Formal", "weight": 4 }] },
+        { "id": "E2", "question": "How are improvement ideas captured?", "options": [{ "label": "They are not", "weight": 1 }, { "label": "Informally", "weight": 2 }, { "label": "Partially", "weight": 3 }, { "label": "Systematically", "weight": 4 }] },
+        { "id": "E3", "question": "How is process performance measured?", "options": [{ "label": "No systematic measurement", "weight": 1 }, { "label": "Track outputs only", "weight": 2 }, { "label": "Track some process metrics", "weight": 3 }, { "label": "Real-time dashboards", "weight": 4 }] },
+        { "id": "E4", "question": "How embedded is improvement culture?", "options": [{ "label": "Not embedded", "weight": 1 }, { "label": "Emerging", "weight": 2 }, { "label": "Developing", "weight": 3 }, { "label": "Embedded", "weight": 4 }] },
+        { "id": "E5", "question": "Primary improvement methodology?", "options": [{ "label": "Lean", "weight": 1 }, { "label": "Six Sigma", "weight": 2 }, { "label": "Agile/Scrum", "weight": 3 }, { "label": "None", "weight": 4 }] },
+        { "id": "E6", "question": "Ability to sustain improvements?", "options": [{ "label": "Poor", "weight": 1 }, { "label": "Mixed", "weight": 2 }, { "label": "Moderate", "weight": 3 }, { "label": "Strong", "weight": 4 }] },
+        { "id": "E7", "question": "Biggest barrier to CI?", "options": [{ "label": "Capacity", "weight": 1 }, { "label": "Skills", "weight": 2 }, { "label": "Priority", "weight": 3 }, { "label": "Data", "weight": 4 }] },
+        { "id": "E8", "question": "How should success be measured? (Select up to 2)", "isMulti": true, "options": [{ "label": "Output metrics", "weight": 1 }, { "label": "Process metrics", "weight": 2 }, { "label": "People metrics", "weight": 3 }, { "label": "Balanced scorecard", "weight": 4 }] }
+      ]
+    }
+  ]
+}
