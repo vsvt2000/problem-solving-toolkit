@@ -21,6 +21,35 @@ import SocraticAuditLog from "./frameworks/audit-log";
 import ProjectCharterSignOff from "./frameworks/final-summary";
 import RaciAiMatrix from "./frameworks/raci";
 import RoiRealizationTracker from "./frameworks/finance-roi";
+import ValueCaseDraft from "./frameworks/value-case";
+
+export const COMPONENT_REGISTRY: Record<string, React.ReactNode> = {
+  'Problem Statement': <ProblemStatementConstructor />,
+  '5-Whys Forensic': <FiveWhysForensic />,
+  'SIPOC 4.0': <Sipoc40Module />,
+  'Digital Shadow Mapper': <DigitalShadowMapper />,
+  'Project Charter': <ProjectCharterSignOff />,
+  // 'VOC Intake': <Voc />,
+  'Stakeholder Power Grid': <StakeholderSentimentModule />,
+  'Value Case Draft': <ValueCaseDraft />,
+  'Value-Feasibility Matrix': <SolutionPrioritizer />,
+  // 'Strategic Playbook': <Playbook />,
+  'VSM 4.0': <Vsm40Modeller />,
+  'AI Solution Design': <HighLevelArchitecture />,
+  'RACI-AI Matrix': <RaciAiMatrix />,
+  // 'Infrastructure Audit': <Infras />,
+  'Pre-Mortem Audit': <PreMortemAudit />,
+  'CPMAI Build Tracker': <CpmaiBuildTracker />,
+  'ADKAR Diagnostic': <AdkarDiagnostic />,
+  'Three-Pillar CM': <ThreePillarCMDesigner />,
+  'Data Pipeline Sentry': <DataPipelineSentry />,
+  'FMEA Risk Analyst': <FmeaRiskAnalyst />,
+  'Governance Watchtower': <GovernanceWatchtower />,
+  'Kaizen PDCA': <KaizenPDCA />,
+  'Scenario Simulator': <ScenarioSimulator />,
+  'Socratic Audit Log': <SocraticAuditLog />,
+  'ROI Realization Tracker': <RoiRealizationTracker />,
+};
 
 export default function ImplementationOrchestrator({ sectionId, onBack }: { sectionId: string, onBack: () => void }) {
   

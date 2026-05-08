@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import ImplementationOrchestrator from './framework-switcher';
+import CustomRoadmapCreator from './roadmap-builder';
 
 /**
  * FULL INTERPRETATION DATA
@@ -8,8 +9,7 @@ import ImplementationOrchestrator from './framework-switcher';
  */
 const ResultsDashboard = ({ scores, onRestart }: { scores: any, onRestart: any }) => {
   // NEW: State for toggling between Dashboard View and Framework Execution
-  const [activeView, setActiveView] = useState('dashboard'); // 'dashboard' or 'roadmap' or framework ID
-
+  const [activeView, setActiveView] = useState('dashboard'); 
   const INTERPRETATIONS: { [x: string]: any } = {
     A: [
       { min: 8, max: 14, label: "UNDEFINED PROBLEM", interpretation: "The problem is poorly understood, likely new, and may be misdiagnosed.", steps: ["Conduct a structured discovery sprint (2–3 weeks).", "Use GenAI-Augmented Root Cause Analysis framework.", "Rerun Section A after discovery."] },
@@ -68,16 +68,47 @@ const ResultsDashboard = ({ scores, onRestart }: { scores: any, onRestart: any }
 
   const activeOverrides = getOverrides();
 
-  // ROUTING LOGIC: If a framework is selected, show a placeholder for that page
-  // PASTE THIS NEW ORCHESTRATOR CALL
-if (activeView !== 'dashboard' && activeView !== 'roadmap') {
+  /**
+ * DYNAMIC ROUTING ENGINE
+ * Handles the transition between:
+ * 1. Executive Summary (dashboard)
+ * 2. Custom Roadmap Architect (roadmap)
+ * 3. Framework Execution (Section IDs: A, B, C, D, E)
+ */
+
+/**
+ * FORENSIC ROUTING ENGINE
+ */
+
+// CASE 1: Component Execution (Launch the 25 Frameworks)
+// Checks if activeView is one of the Section IDs
+if (['A', 'B', 'C', 'D', 'E'].includes(activeView)) {
   return (
     <ImplementationOrchestrator 
       sectionId={activeView} 
-      onBack={() => setActiveView('roadmap')} 
+      onBack={() => setActiveView('roadMap')} 
     />
   );
 }
+
+// CASE 2: The Architect (Custom Roadmap Creator)
+if (activeView === 'forensicPath') {
+  return (
+    <div className="min-h-screen bg-slate-50 p-4 md:p-10 font-sans">
+       <button 
+          onClick={() => setActiveView('dashboard')} 
+          className="mb-6 px-4 py-2 bg-white border-2 border-slate-900 text-[10px] text-black font-bold uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+        >
+          ← Return to Analysis Dashboard
+        </button>
+        
+        {/* Your Roadmap Architect component */}
+        <CustomRoadmapCreator /> </div>
+  );
+}
+
+// CASE 3: Main Dashboard (Default)
+// (Your existing return block for the dashboard goes here...)
 
   return (
     <div className="max-w-6xl mx-auto p-4 md:p-8 space-y-8 bg-white min-h-screen font-sans">
@@ -86,13 +117,13 @@ if (activeView !== 'dashboard' && activeView !== 'roadmap') {
       <div className="bg-slate-900 text-white rounded-3xl p-8 shadow-2xl flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
           <h2 className="text-blue-400 font-bold uppercase tracking-widest text-sm mb-2">Composite Readiness Level</h2>
-          <h1 className="text-4xl md:text-5xl font-black">{overall?.level || "CALCULATING..."}</h1>
+          <h1 className="text-4xl md:text-5xl text-white font-bold">{overall?.level || "CALCULATING..."}</h1>
           <p className="text-slate-400 mt-4 text-lg">
             Recommended Mode: <span className="text-white font-semibold">{overall?.mode}</span>
           </p>
         </div>
-        <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center min-w-[180px]">
-          <p className="text-6xl font-black text-blue-500">{Math.round(totalScore)}</p>
+        <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center min-w-45">
+          <p className="text-6xl font-bold text-blue-500">{Math.round(totalScore)}</p>
           <p className="text-slate-500 font-bold mt-1 uppercase text-xs tracking-widest">Aggregate / 160</p>
         </div>
       </div>
@@ -101,15 +132,21 @@ if (activeView !== 'dashboard' && activeView !== 'roadmap') {
       <div className="flex bg-slate-100 p-1 rounded-xl w-fit">
         <button 
           onClick={() => setActiveView('dashboard')}
-          className={`px-6 py-2 rounded-lg text-xs font-black uppercase transition-all ${activeView === 'dashboard' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-400'}`}
+          className={`px-6 py-2 rounded-lg text-xs text-black font-bold uppercase transition-all ${activeView === 'dashboard' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-400'}`}
         >
           Analysis Summary
         </button>
-        <button 
+        {/* <button 
           onClick={() => setActiveView('roadmap')}
-          className={`px-6 py-2 rounded-lg text-xs font-black uppercase transition-all ${activeView === 'roadmap' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-400'}`}
+          className={`px-6 py-2 rounded-lg text-xs text-black font-bold uppercase transition-all ${activeView === 'roadmap' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-400'}`}
         >
           Implementation Roadmap
+        </button> */}
+        <button 
+          onClick={() => setActiveView('forensicPath')}
+          className={`px-6 py-2 rounded-lg text-xs text-black font-bold uppercase transition-all ${activeView === 'forensicPath' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-400'}`}
+        >
+          Create Roadmap
         </button>
       </div>
 
@@ -135,14 +172,14 @@ if (activeView !== 'dashboard' && activeView !== 'roadmap') {
                   <div>
                     <div className="flex justify-between items-center mb-4">
                       <span className="bg-white border border-slate-200 px-3 py-1 rounded-full text-xs font-bold text-slate-500">Section {s.id}</span>
-                      <span className="text-slate-900 font-black text-xl">{Math.round(s.score)}/32</span>
+                      <span className="text-slate-900 font-bold text-xl">{Math.round(s.score)}/32</span>
                     </div>
-                    <h3 className="text-blue-700 font-black text-lg mb-1 leading-tight">{result?.label}</h3>
+                    <h3 className="text-black font-bold text-lg mb-1 leading-tight">{result?.label}</h3>
                     <p className="text-slate-500 text-xs font-medium uppercase mb-4 tracking-wide">{result?.level || result?.risk || result?.approach}</p>
                     <p className="text-slate-700 text-sm leading-relaxed mb-6 italic">{result?.interpretation}</p>
                   </div>
                   <div className="space-y-3 pt-4 border-t border-slate-200">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Immediate Next Steps</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Immediate Next Steps</p>
                     {result?.steps.map((step: any, i: any) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-slate-800">
                         <span className="text-blue-500 font-bold">•</span>
@@ -194,15 +231,15 @@ if (activeView !== 'dashboard' && activeView !== 'roadmap') {
 const RoadmapSection = ({ number, title, ids, onSelect }: any) => (
   <div className="flex gap-8 relative">
     <div className="flex flex-col items-center">
-      <div className="w-10 h-10 bg-slate-900 text-white flex items-center justify-center font-black rounded-full z-10 border-4 border-white shadow-lg">{number}</div>
-      <div className="w-1 h-full bg-slate-100 absolute top-0 -z-0"></div>
+      <div className="w-10 h-10 bg-slate-900 text-white flex items-center justify-center font-bold rounded-full z-10 border-4 border-white shadow-lg">{number}</div>
+      <div className="w-1 h-full bg-slate-100 absolute top-0 z-0"></div>
     </div>
     <div className="flex-1 bg-slate-50 p-6 rounded-3xl border-2 border-slate-100 hover:border-slate-900 transition-all">
-      <h3 className="text-xl font-black uppercase italic tracking-tighter mb-4">{title}</h3>
+      <h3 className="text-xl text-black font-bold uppercase italic tracking-tighter mb-4">{title}</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {ids.map((id:string) => (
             <button key={id} onClick={() => onSelect(id)} className="p-4 bg-white border border-slate-200 rounded-xl text-left hover:shadow-md transition-shadow group">
-                <span className="text-[10px] font-black text-blue-600 block mb-1">EXECUTE SECTION {id}</span>
+                <span className="text-[10px]  font-bold text-blue-600 block mb-1">EXECUTE SECTION {id}</span>
                 <span className="text-xs font-bold text-slate-800">Launch Component →</span>
             </button>
         ))}
