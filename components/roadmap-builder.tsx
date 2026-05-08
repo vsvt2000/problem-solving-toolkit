@@ -68,7 +68,7 @@ export default function CustomRoadmapCreator() {
 
     return (
       <div className="p-10 bg-slate-900 text-white min-h-screen font-sans">
-        <div className="flex justify-between items-center mb-12 border-b-2 border-slate-700 pb-6">
+        <div className="block md:flex justify-between items-center mb-12 border-b-2 border-slate-700 pb-6">
           <h2 className="text-4xl font-bold uppercase italic tracking-tighter">Locked Implementation Path</h2>
           <button onClick={resetRoadmap} className="text-[10px] px-4 py-2 bg-white text-black font-bold uppercase shadow-[4px_4px_0px_0px_rgba(59,130,246,1)] hover:shadow-none transition-all">
             Re-Architect

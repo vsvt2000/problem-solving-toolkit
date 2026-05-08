@@ -1,4 +1,6 @@
-"use client"
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+import React from 'react';
 import Sipoc40Module from "./frameworks/sipoc";
 import FiveWhysForensic from "./frameworks/five-whys";
 import Vsm40Modeller from "./frameworks/vsm";
@@ -11,7 +13,6 @@ import DigitalShadowMapper from "./frameworks/shadow";
 import SolutionPrioritizer from "./frameworks/ideation";
 import HighLevelArchitecture from "./frameworks/architecture";
 import PreMortemAudit from "./frameworks/pre-mortem";
-// import ValueFeasibilityMatrix from "./frameworks/value-feasiblity";
 import ThreePillarCMDesigner from "./frameworks/three-pillar";
 import GovernanceWatchtower from "./frameworks/watchtower"; 
 import ScenarioSimulator from "./frameworks/scenario-simulator";
@@ -24,71 +25,101 @@ import RoiRealizationTracker from "./frameworks/finance-roi";
 import ValueCaseDraft from "./frameworks/value-case";
 
 export const COMPONENT_REGISTRY: Record<string, React.ReactNode> = {
+
   'Problem Statement': <ProblemStatementConstructor />,
+
   '5-Whys Forensic': <FiveWhysForensic />,
+
   'SIPOC 4.0': <Sipoc40Module />,
+
   'Digital Shadow Mapper': <DigitalShadowMapper />,
+
   'Project Charter': <ProjectCharterSignOff />,
+
   // 'VOC Intake': <Voc />,
+
   'Stakeholder Power Grid': <StakeholderSentimentModule />,
+
   'Value Case Draft': <ValueCaseDraft />,
+
   'Value-Feasibility Matrix': <SolutionPrioritizer />,
+
   // 'Strategic Playbook': <Playbook />,
+
   'VSM 4.0': <Vsm40Modeller />,
+
   'AI Solution Design': <HighLevelArchitecture />,
+
   'RACI-AI Matrix': <RaciAiMatrix />,
+
   // 'Infrastructure Audit': <Infras />,
+
   'Pre-Mortem Audit': <PreMortemAudit />,
+
   'CPMAI Build Tracker': <CpmaiBuildTracker />,
+
   'ADKAR Diagnostic': <AdkarDiagnostic />,
+
   'Three-Pillar CM': <ThreePillarCMDesigner />,
+
   'Data Pipeline Sentry': <DataPipelineSentry />,
+
   'FMEA Risk Analyst': <FmeaRiskAnalyst />,
+
   'Governance Watchtower': <GovernanceWatchtower />,
+
   'Kaizen PDCA': <KaizenPDCA />,
+
   'Scenario Simulator': <ScenarioSimulator />,
+
   'Socratic Audit Log': <SocraticAuditLog />,
+
   'ROI Realization Tracker': <RoiRealizationTracker />,
+
 };
+
+
 
 export default function ImplementationOrchestrator({ sectionId, onBack }: { sectionId: string, onBack: () => void }) {
   
+  const phaseMeta: Record<string, { title: string; subtitle: string }> = {
+    'A': { title: 'Phase 1: Discovery', subtitle: 'Establishing the Problem Foundation' },
+    'B': { title: 'Phase 2: Strategy', subtitle: 'Alignment & Prioritization' },
+    'C': { title: 'Phase 3: Architecture', subtitle: 'Technical Design & Accountability' },
+    'D': { title: 'Phase 4: Stabilization', subtitle: 'Technical Build & Change Management' },
+    'E': { title: 'Phase 5: Governance', subtitle: 'Sustainment & ROI Tracking' }
+  };
+
   const renderPhaseFrameworks = () => {
     switch (sectionId) {
-      case 'A': // PHASE 1: DISCOVERY
+      case 'A':
         return (
           <div className="space-y-12">
             <FrameworkWrapper title="Problem Statement" status="Active"><ProblemStatementConstructor /></FrameworkWrapper>
-            {/* <FrameworkWrapper title="Voice of Customer" status="Ready"><VocIntake /></FrameworkWrapper> */}
             <FrameworkWrapper title="Root Cause Analysis" status="Ready"><FiveWhysForensic /></FrameworkWrapper>
             <FrameworkWrapper title="Digital Shadow Audit" status="Ready"><DigitalShadowMapper /></FrameworkWrapper>
             <FrameworkWrapper title="Project Charter" status="Ready"><ProjectCharterSignOff /></FrameworkWrapper>
           </div>
         );
-
-      case 'B': // PHASE 2: STRATEGY
+      case 'B':
         return (
           <div className="space-y-12">
             <FrameworkWrapper title="SIPOC 4.0" status="Active"><Sipoc40Module /></FrameworkWrapper>
             <FrameworkWrapper title="Stakeholder Sentiment" status="Ready"><StakeholderSentimentModule /></FrameworkWrapper>
-            <FrameworkWrapper title="Value Case Definition" status="Ready"><div className="p-8 italic text-slate-400">Value Case Module Loading...</div></FrameworkWrapper>
+            <FrameworkWrapper title="Value Case Definition" status="Ready"><ValueCaseDraft /></FrameworkWrapper>
             <FrameworkWrapper title="Solution Prioritization" status="Ready"><SolutionPrioritizer /></FrameworkWrapper>
-            <FrameworkWrapper title="Strategic Playbook" status="Ready"><div className="p-8 italic text-slate-400">Playbook Selector Loading...</div></FrameworkWrapper>
           </div>
         );
-
-      case 'C': // PHASE 3: ARCHITECTURAL
+      case 'C':
         return (
           <div className="space-y-12">
             <FrameworkWrapper title="Value Stream Mapping" status="Active"><Vsm40Modeller /></FrameworkWrapper>
             <FrameworkWrapper title="High Level Architecture" status="Ready"><HighLevelArchitecture /></FrameworkWrapper>
             <FrameworkWrapper title="RACI-AI Matrix" status="Ready"><RaciAiMatrix /></FrameworkWrapper>
-            {/* <FrameworkWrapper title="Infrastructure Audit" status="Ready"><InfrastructureAudit /></FrameworkWrapper> */}
             <FrameworkWrapper title="Pre-Mortem Audit" status="Ready"><PreMortemAudit /></FrameworkWrapper>
           </div>
         );
-
-      case 'D': // PHASE 4: STABILIZATION
+      case 'D':
         return (
           <div className="space-y-12">
             <FrameworkWrapper title="CPMAI Build Tracker" status="Active"><CpmaiBuildTracker /></FrameworkWrapper>
@@ -98,8 +129,7 @@ export default function ImplementationOrchestrator({ sectionId, onBack }: { sect
             <FrameworkWrapper title="FMEA Risk Analyst" status="Ready"><FmeaRiskAnalyst /></FrameworkWrapper>
           </div>
         );
-
-      case 'E': // PHASE 5: GOVERNANCE
+      case 'E':
         return (
           <div className="space-y-12">
             <FrameworkWrapper title="Governance Watchtower" status="Active"><GovernanceWatchtower /></FrameworkWrapper>
@@ -109,35 +139,53 @@ export default function ImplementationOrchestrator({ sectionId, onBack }: { sect
             <FrameworkWrapper title="ROI Realization Tracker" status="Ready"><RoiRealizationTracker /></FrameworkWrapper>
           </div>
         );
-
       default:
         return (
-          <div className="p-20 text-center border-2 border-dashed border-slate-200">
-            <p className="text-slate-400 font-black uppercase italic">Select Roadmap Node to Launch Frameworks</p>
+          <div className="p-20 text-center border-2 border-dashed border-gray-200 rounded-3xl bg-gray-50">
+            <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">Select Roadmap Node to Launch Frameworks</p>
           </div>
         );
     }
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6 md:p-12 font-sans">
+    <div className="min-h-screen bg-white p-4 md:p-12 font-sans text-gray-900 selection:bg-blue-100">
       <div className="max-w-5xl mx-auto">
-        <header className="mb-10 flex justify-between items-center border-b-4 border-slate-900 pb-6">
+        {/* Header Terminal Style */}
+        <header className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-gray-100 pb-8">
           <button 
             onClick={onBack} 
-            className="text-[10px] font-black uppercase tracking-widest text-slate-900 bg-white border-2 border-slate-900 px-4 py-2 hover:bg-slate-900 hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none"
+            className="group flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-blue-600 transition-all"
           >
-            ← Back to Roadmap
+            <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to Roadmap
           </button>
-          <div className="text-right">
-            <h2 className="text-2xl font-black italic uppercase tracking-tighter">Implementation Phase {sectionId}</h2>
-            <p className="text-[9px] font-bold text-blue-600 uppercase tracking-widest">Active Execution Environment</p>
+          
+          <div className="md:text-right space-y-1">
+            <div className="flex items-center md:justify-end gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                <h2 className="text-xl font-extrabold tracking-tight uppercase">
+                    {phaseMeta[sectionId]?.title || `Phase ${sectionId}`}
+                </h2>
+            </div>
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">
+                {phaseMeta[sectionId]?.subtitle || 'Active Execution Environment'}
+            </p>
           </div>
         </header>
 
-        <div className="animate-in slide-in-from-bottom-6 duration-700">
+        {/* Phase Execution Area */}
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
           {renderPhaseFrameworks()}
         </div>
+
+        {/* Global Footer */}
+        <footer className="mt-20 pt-8 border-t border-gray-100 flex justify-between items-center text-[9px] font-bold text-gray-300 uppercase tracking-widest">
+            <span>Orchestrator v1.0.4</span>
+            <div className="flex gap-4">
+                <span>Secure Session</span>
+                <span>Auto-Save Enabled</span>
+            </div>
+        </footer>
       </div>
     </div>
   );
@@ -145,16 +193,28 @@ export default function ImplementationOrchestrator({ sectionId, onBack }: { sect
 
 /**
  * WRAPPER COMPONENT
- * Provides a consistent forensic "Frame" for every methodology tool.
+ * Clean Forensic Frame with Phase Gate status labels.
  */
 function FrameworkWrapper({ title, status, children }: { title: string, status: string, children: React.ReactNode }) {
+  const isActive = status === 'Active';
+  
   return (
-    <div className="bg-white border-2 border-slate-900 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
-      <div className="bg-slate-900 p-3 flex justify-between items-center">
-        <h3 className="text-[10px] font-black text-white uppercase tracking-[0.2em]">{title}</h3>
-        <span className="text-[8px] font-black bg-blue-500 text-white px-2 py-0.5 uppercase tracking-widest">{status}</span>
+    <div className="bg-white border border-gray-100 rounded-3xl overflow-hidden hover:border-blue-200 transition-all duration-500 shadow-sm">
+      {/* Tool Header */}
+      <div className="bg-gray-50/50 px-8 py-4 border-b border-gray-100 flex justify-between items-center">
+        <div className="flex items-center gap-3">
+            <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
+            <h3 className="text-[10px] font-black text-gray-900 uppercase tracking-widest">{title}</h3>
+        </div>
+        <span className={`text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-tighter transition-colors ${
+            isActive ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-400'
+        }`}>
+            {status}
+        </span>
       </div>
-      <div className="p-6 md:p-10">
+      
+      {/* Tool Content Area */}
+      <div className="p-6 md:p-12 animate-in fade-in duration-500">
         {children}
       </div>
     </div>
